@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SteepWorksAI — Private AI Tools for the Browser</title>
+  <meta name="description" content="SteepWorksAI builds private, open-source AI browser extensions. No servers. No telemetry. Bring your own key." />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: #f9fafb; color: #111827; }
+
+    /* ── Nav ── */
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 860px; margin: 0 auto; padding: 20px 24px;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-brand-dot { width: 28px; height: 28px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; }
+    .nav-brand-name { font-size: 17px; font-weight: 800; color: #1f2937; letter-spacing: -0.3px; }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { font-size: 14px; color: #6b7280; text-decoration: none; font-weight: 500; }
+    .nav-links a:hover { color: #6366f1; }
+
+    /* ── Hero ── */
+    .hero {
+      max-width: 680px; margin: 0 auto; padding: 80px 24px 64px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block; background: #ede9fe; color: #6366f1;
+      border: 1px solid #c4b5fd; border-radius: 99px;
+      padding: 4px 14px; font-size: 13px; font-weight: 700; margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: 48px; font-weight: 900; color: #1f2937;
+      line-height: 1.1; margin-bottom: 18px; letter-spacing: -1px;
+    }
+    .hero h1 span { color: #6366f1; }
+    .hero p {
+      font-size: 18px; color: #6b7280; line-height: 1.65;
+      max-width: 520px; margin: 0 auto;
+    }
+
+    /* ── Products ── */
+    .products {
+      max-width: 860px; margin: 0 auto 80px; padding: 0 24px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 24px;
+    }
+    .card {
+      background: #fff; border: 1px solid #e5e7eb; border-radius: 20px;
+      padding: 32px; text-decoration: none; color: inherit;
+      transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .card:hover {
+      box-shadow: 0 12px 40px rgba(99,102,241,0.15);
+      transform: translateY(-3px); border-color: #c4b5fd;
+    }
+    .card-header { display: flex; align-items: center; gap: 16px; }
+    .card-icon {
+      width: 56px; height: 56px; border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(99,102,241,0.2); flex-shrink: 0;
+    }
+    .card-title-wrap { display: flex; flex-direction: column; gap: 4px; }
+    .card-name { font-size: 20px; font-weight: 800; color: #1f2937; }
+    .card-tag {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      padding: 2px 10px; border-radius: 99px;
+    }
+    .tag-indigo { background: #ede9fe; color: #6366f1; border: 1px solid #c4b5fd; }
+    .tag-blue   { background: #eff6ff; color: #3b82f6; border: 1px solid #bfdbfe; }
+    .card-desc { font-size: 15px; color: #6b7280; line-height: 1.6; }
+    .card-bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .card-bullets li {
+      font-size: 13px; color: #4b5563;
+      display: flex; align-items: flex-start; gap: 8px;
+    }
+    .card-bullets li::before { content: "✓"; color: #6366f1; font-weight: 700; flex-shrink: 0; }
+    .card-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border-radius: 10px; font-weight: 700;
+      font-size: 14px; color: #fff; margin-top: auto;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      box-shadow: 0 4px 14px rgba(99,102,241,0.35);
+      align-self: flex-start;
+    }
+
+    /* ── Principles ── */
+    .principles {
+      max-width: 860px; margin: 0 auto 80px; padding: 0 24px;
+      text-align: center;
+    }
+    .principles h2 { font-size: 26px; font-weight: 800; color: #1f2937; margin-bottom: 32px; }
+    .principles-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;
+    }
+    .principle {
+      background: #fff; border: 1px solid #e5e7eb; border-radius: 14px;
+      padding: 24px 20px; text-align: left;
+    }
+    .principle .icon { font-size: 26px; margin-bottom: 10px; }
+    .principle h3 { font-size: 14px; font-weight: 700; color: #1f2937; margin-bottom: 6px; }
+    .principle p { font-size: 13px; color: #6b7280; line-height: 1.55; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center; padding: 32px 24px;
+      font-size: 13px; color: #9ca3af; border-top: 1px solid #e5e7eb;
+    }
+    footer a { color: #6366f1; text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 34px; }
+      .products { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-brand" href="/">
+      <div class="nav-brand-dot"></div>
+      <span class="nav-brand-name">SteepWorksAI</span>
+    </a>
+    <div class="nav-links">
+      <a href="https://github.com/steepworksai" target="_blank">GitHub</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-badge">Private · Open Source · No Servers</div>
+    <h1>AI tools that stay<br><span>in your browser</span></h1>
+    <p>SteepWorksAI builds extensions that bring AI into your everyday browser workflow — privately, with no backend and no telemetry. Bring your own key.</p>
+  </div>
+
+  <div class="products">
+
+    <!-- FormBuddy -->
+    <a class="card" href="https://formbuddy.steepworksai.com" target="_blank">
+      <div class="card-header">
+        <img class="card-icon" src="formbuddy-icon.png" alt="FormBuddy icon" />
+        <div class="card-title-wrap">
+          <span class="card-name">FormBuddy</span>
+          <span class="card-tag tag-indigo">Chrome &amp; Edge Extension</span>
+        </div>
+      </div>
+      <p class="card-desc">Fill any web form instantly from your own documents — locally, privately, with AI-powered suggestions and full citations.</p>
+      <ul class="card-bullets">
+        <li>Scan &amp; Auto Fill every field on the page at once</li>
+        <li>Every suggestion cites its source file and page</li>
+        <li>Works with PDFs, scanned docs, screenshots, and notes</li>
+        <li>Supports Claude, GPT-4o, and Gemini — BYOK</li>
+      </ul>
+      <span class="card-cta">➕ Add to Chrome — Free</span>
+    </a>
+
+    <!-- Briefer -->
+    <a class="card" href="https://briefer.steepworksai.com" target="_blank">
+      <div class="card-header">
+        <img class="card-icon" src="briefer-icon.png" alt="Briefer icon" />
+        <div class="card-title-wrap">
+          <span class="card-name">Briefer</span>
+          <span class="card-tag tag-blue">Chrome Extension</span>
+        </div>
+      </div>
+      <p class="card-desc">Instant AI summaries of any article, blog post, or YouTube video — structured, readable, and saved to your personal knowledge base.</p>
+      <ul class="card-bullets">
+        <li>TLDR, key points, and takeaway in seconds</li>
+        <li>Deep Dive and AI Doodle / Mind Map modes</li>
+        <li>YouTube &amp; video transcript support</li>
+        <li>Powered by Google Gemini — BYOK</li>
+      </ul>
+      <span class="card-cta">➕ Get Briefer — Free</span>
+    </a>
+
+  </div>
+
+  <div class="principles">
+    <h2>Built on three principles</h2>
+    <div class="principles-grid">
+      <div class="principle">
+        <div class="icon">🔒</div>
+        <h3>Private by design</h3>
+        <p>No backend server. No data collection. Everything runs inside your browser.</p>
+      </div>
+      <div class="principle">
+        <div class="icon">🔑</div>
+        <h3>Bring your own key</h3>
+        <p>Your API key goes directly to the AI provider — never through us.</p>
+      </div>
+      <div class="principle">
+        <div class="icon">📖</div>
+        <h3>Open source</h3>
+        <p>Every line of code is public on GitHub. Audit it, fork it, contribute to it.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 SteepWorksAI ·
+    <a href="https://github.com/steepworksai" target="_blank">GitHub</a> ·
+    <a href="mailto:support@steepworksai.com">Contact</a>
+  </footer>
+
+</body>
+</html>
