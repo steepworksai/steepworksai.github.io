@@ -37,13 +37,22 @@ is `NONE` or not provided.
 
 | # | Button | Style class | Label | href |
 |---|--------|-------------|-------|------|
-| 1 | Chrome | `.cta` | `➕ Add to Chrome — It's Free` | `CHROME_URL` |
-| 2 | Edge   | `.cta .cta-edge` | `➕ Add to Edge — It's Free` | `EDGE_URL` |
+| 1 | Chrome | `.cta .cta-chrome` | `[Chrome SVG icon] Add to Chrome — It's Free` | `CHROME_URL` |
+| 2 | Edge   | `.cta .cta-edge` | `[Edge SVG icon] Add to Edge — It's Free` | `EDGE_URL` |
 | 3 | Star   | `.cta .cta-gh` | `⭐ Star on GitHub` | `https://github.com/{GITHUB_REPO}` |
 | 4 | Contribute | `.cta .cta-contribute` | `🤝 Contribute` | `https://github.com/{GITHUB_REPO}` |
 
 **Star and Contribute are always rendered** (GITHUB_REPO is always required).
 Chrome and Edge are only rendered when their URL is not NONE.
+
+**Browser icon SVGs** (inline, copy exactly into the button):
+```html
+<!-- Chrome icon -->
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 100 100" style="flex-shrink:0"><path d="M50,50L50,5A45,45,0,0,1,88.97,72.5Z" fill="#EA4335"/><path d="M50,50L88.97,72.5A45,45,0,0,1,11.03,72.5Z" fill="#FBBC05"/><path d="M50,50L11.03,72.5A45,45,0,0,1,50,5Z" fill="#34A853"/><circle cx="50" cy="50" r="27" fill="#fff"/><circle cx="50" cy="50" r="20" fill="#4285F4"/></svg>
+
+<!-- Edge icon -->
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 100 100" style="flex-shrink:0"><path d="M85,44C85,24,69,8,50,8C31,8,15,24,15,44c0,10,4,20,12,27h46C81,64,85,54,85,44zM50,22c11,0,21,9,21,21H29C29,31,39,22,50,22z" fill="#0078D7"/><path d="M27,71c7,8,16,13,23,13c12,0,23-7,28-17H27Z" fill="#33AADC"/></svg>
+```
 
 ---
 
@@ -92,6 +101,13 @@ CTA button CSS:
   border: 2px solid #2d6b2d;
   color: #2d6b2d;
   box-shadow: none;
+}
+/* Chrome — white bg so the colorful Chrome icon pops */
+.cta-chrome {
+  background: #fff;
+  color: #1f2937;
+  border: 1.5px solid #dadce0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 ```
 
