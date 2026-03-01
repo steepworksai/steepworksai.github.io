@@ -55,10 +55,11 @@ Body text:    #111827
 Headings:     #1f2937
 Secondary:    #6b7280
 Muted:        #9ca3af
-Accent:       #6366f1  (indigo)
+Accent:       #2d6b2d  (forest green)
+Accent-2:     #c9920e  (gold)
 Border:       #e5e7eb
 Card bg:      #ffffff
-Badge bg:     #ede9fe   border: #c4b5fd   text: #6366f1
+Badge bg:     #f0f9f0   border: #a8d5a8   text: #2d6b2d
 Font:         system-ui, -apple-system, sans-serif
 Border-radius on cards: 12px
 Border-radius on CTA buttons: 12px
@@ -72,8 +73,8 @@ CTA button CSS:
   display: inline-flex; align-items: center; gap: 8px;
   padding: 14px 28px; border-radius: 12px;
   font-weight: 700; font-size: 16px; text-decoration: none; color: #fff;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  box-shadow: 0 4px 18px rgba(99,102,241,0.35);
+  background: linear-gradient(135deg, #2d6b2d, #c9920e);
+  box-shadow: 0 4px 18px rgba(45,107,45,0.35);
 }
 /* Edge */
 .cta-edge {
@@ -88,8 +89,8 @@ CTA button CSS:
 /* Contribute */
 .cta-contribute {
   background: transparent;
-  border: 2px solid #6366f1;
-  color: #6366f1;
+  border: 2px solid #2d6b2d;
+  color: #2d6b2d;
   box-shadow: none;
 }
 ```
@@ -119,7 +120,7 @@ Generate a single self-contained HTML file with **inline CSS only** (no external
 
 ### 4 — How it works  `.how`  (only if HOW_IT_WORKS is provided)
 - h2 "How it works" (26px, weight 800)
-- `.steps` grid (auto-fit, minmax 150px): each `.step` card has step number label (12px, uppercase, #6366f1), h3, p
+- `.steps` grid (auto-fit, minmax 150px): each `.step` card has step number label (12px, uppercase, #2d6b2d), h3, p
 
 ### 5 — Video  `.video-section`  (only if VIDEO_EMBED is not NONE)
 - h2 "See it in action" (26px, weight 800)
