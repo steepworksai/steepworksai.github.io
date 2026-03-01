@@ -23,6 +23,10 @@
 - Script sets 4 GitHub Pages A records + www CNAME, all with Cloudflare proxy OFF (grey cloud)
 - Proxy must be off so GitHub can issue its Let's Encrypt cert and "Enforce HTTPS" works
 
+## Adding a new product repo
+- Run `bash scripts/add-product.sh <subdomain> <gh-repo> "<Product Name>"` — handles CNAME file, DNS, Pages, cert, and HTTPS end-to-end
+- To generate the product `docs/index.html`, use the prompt at `prompts/product-page.md`
+
 ## GitHub Pages steps (one-time)
 1. Push files to `main`
 2. Settings → Pages → Deploy from branch → `main` / root
