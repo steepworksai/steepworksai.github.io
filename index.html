@@ -43,43 +43,45 @@
 
     /* ── Products ── */
     .products {
-      max-width: 860px; margin: 0 auto 80px; padding: 0 24px;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 24px;
+      max-width: 960px; margin: 0 auto 80px; padding: 0 24px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;
     }
     .card {
       background: #fff; border: 1px solid #e5e7eb; border-radius: 20px;
-      padding: 32px; text-decoration: none; color: inherit;
+      padding: 28px; text-decoration: none; color: inherit;
       transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s;
-      display: flex; flex-direction: column; gap: 16px;
+      display: flex; flex-direction: column; gap: 14px;
     }
     .card:hover {
       box-shadow: 0 12px 40px rgba(99,102,241,0.15);
       transform: translateY(-3px); border-color: #c4b5fd;
     }
-    .card-header { display: flex; align-items: center; gap: 16px; }
+    .card-header { display: flex; align-items: center; gap: 14px; }
     .card-icon {
-      width: 56px; height: 56px; border-radius: 14px;
+      width: 52px; height: 52px; border-radius: 14px;
       box-shadow: 0 4px 16px rgba(99,102,241,0.2); flex-shrink: 0;
     }
     .card-title-wrap { display: flex; flex-direction: column; gap: 4px; }
-    .card-name { font-size: 20px; font-weight: 800; color: #1f2937; }
+    .card-name { font-size: 18px; font-weight: 800; color: #1f2937; }
     .card-tag {
       display: inline-block; font-size: 11px; font-weight: 700;
       padding: 2px 10px; border-radius: 99px;
     }
     .tag-indigo { background: #ede9fe; color: #6366f1; border: 1px solid #c4b5fd; }
     .tag-blue   { background: #eff6ff; color: #3b82f6; border: 1px solid #bfdbfe; }
-    .card-desc { font-size: 15px; color: #6b7280; line-height: 1.6; }
-    .card-bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-    .card-bullets li {
-      font-size: 13px; color: #4b5563;
-      display: flex; align-items: flex-start; gap: 8px;
+    .card-desc { font-size: 14px; color: #6b7280; line-height: 1.6; }
+    .card-attrs {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto;
     }
-    .card-bullets li::before { content: "✓"; color: #6366f1; font-weight: 700; flex-shrink: 0; }
+    .attr {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 11px; font-weight: 700; padding: 3px 10px;
+      border-radius: 99px; background: #f9fafb; border: 1px solid #e5e7eb; color: #4b5563;
+    }
     .card-cta {
       display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 22px; border-radius: 10px; font-weight: 700;
-      font-size: 14px; color: #fff; margin-top: auto;
+      padding: 11px 20px; border-radius: 10px; font-weight: 700;
+      font-size: 13px; color: #fff;
       background: linear-gradient(135deg, #6366f1, #8b5cf6);
       box-shadow: 0 4px 14px rgba(99,102,241,0.35);
       align-self: flex-start;
@@ -109,7 +111,7 @@
     }
     footer a { color: #6366f1; text-decoration: none; }
 
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
       .hero h1 { font-size: 34px; }
       .products { grid-template-columns: 1fr; }
     }
@@ -145,12 +147,11 @@
         </div>
       </div>
       <p class="card-desc">Fill any web form instantly from your own documents — locally, privately, with AI-powered suggestions and full citations.</p>
-      <ul class="card-bullets">
-        <li>Scan &amp; Auto Fill every field on the page at once</li>
-        <li>Every suggestion cites its source file and page</li>
-        <li>Works with PDFs, scanned docs, screenshots, and notes</li>
-        <li>Supports Claude, GPT-4o, and Gemini — BYOK</li>
-      </ul>
+      <div class="card-attrs">
+        <span class="attr">🔒 Private</span>
+        <span class="attr">🔑 Bring Your Own Key</span>
+        <span class="attr">📖 Open Source</span>
+      </div>
       <span class="card-cta">➕ Add to Chrome — Free</span>
     </a>
 
@@ -164,12 +165,11 @@
         </div>
       </div>
       <p class="card-desc">Instant AI summaries of any article, blog post, or YouTube video — structured, readable, and saved to your personal knowledge base.</p>
-      <ul class="card-bullets">
-        <li>TLDR, key points, and takeaway in seconds</li>
-        <li>Deep Dive and AI Doodle / Mind Map modes</li>
-        <li>YouTube &amp; video transcript support</li>
-        <li>Powered by Google Gemini — BYOK</li>
-      </ul>
+      <div class="card-attrs">
+        <span class="attr">🔒 Private</span>
+        <span class="attr">🔑 Bring Your Own Key</span>
+        <span class="attr">📖 Open Source</span>
+      </div>
       <span class="card-cta">➕ Get Briefer — Free</span>
     </a>
 
